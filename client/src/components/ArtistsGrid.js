@@ -3,11 +3,11 @@ import React from "react";
 const ArtistsGrid = ({ artists }) => (
   <>
     {artists && artists.length ? (
-      <ul className="grid grid-cols-fluid list-none relative gap-4 m-0 p-0 mx-6">
+      <ul className="grid grid-cols-fluid list-none relative gap-6 m-0 p-0 mx-6">
         {artists.map((artist, i) => (
           <li
             key={i}
-            className="bg-near_black rounded-sm cursor-default hover:bg-dark_gray ease-in-out duration-200"
+            className="bg-near_black rounded-md cursor-default hover:bg-dark_gray ease-in-out duration-200"
           >
             <div className="p-4">
               {artist.images[0] && (

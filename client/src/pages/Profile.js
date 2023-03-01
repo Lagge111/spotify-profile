@@ -11,6 +11,7 @@ import {
   ArtistsGrid,
   TrackList,
   PlaylistsGrid,
+  Footer,
 } from "../components";
 import { logout } from "../spotify";
 
@@ -38,7 +39,7 @@ const Profile = () => {
     catchErrors(fetchData());
   }, []);
 
-  console.log(topTracks);
+  console.log(playlists);
 
   return (
     <>
@@ -89,25 +90,26 @@ const Profile = () => {
           LOG OUT
         </button>
       </div>
-      {topArtists && (
-        <main className="mt-20">
+      {topArtists && topTracks && playlists && (
+        <main className="mt-20 flex flex-col gap-10">
           <SectionWrapper
             title="Top artists this month"
             seeAllLink="/top-artists"
           >
-            <ArtistsGrid artists={topArtists?.items?.slice(0, 10)} />
+            <ArtistsGrid artists={topArtists.items.slice(0, 10)} />
           </SectionWrapper>
           <SectionWrapper
             title="Top tracks this month"
             seeAllLink="/top-tracks"
           >
-            <TrackList tracks={topTracks?.items?.slice(0, 10)} />
+            <TrackList tracks={topTracks.items.slice(0, 10)} />
           </SectionWrapper>
           <SectionWrapper title="Playlists" seeAllLink="/playlists">
-            <PlaylistsGrid playlists={playlists?.items?.slice(0, 10)} />
+            <PlaylistsGrid playlists={playlists.items.slice(0, 10)} />
           </SectionWrapper>
         </main>
       )}
+      <Footer />
     </>
   );
 };

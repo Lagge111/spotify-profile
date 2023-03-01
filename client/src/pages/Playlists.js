@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { getCurrentUserPlaylists } from "../spotify";
 import { catchErrors } from "../utils";
-import { SectionWrapper, PlaylistsGrid } from "../components";
+import { SectionWrapper, PlaylistsGrid, Footer } from "../components";
 
 const Playlists = () => {
   const [playlistsData, setPlaylistsData] = useState(null);
@@ -10,36 +10,40 @@ const Playlists = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const userPlaylists = await getCurrentUserPlaylists();
-      setPlaylistsData(userPlaylists.data);
+      const { data } = await getCurrentUserPlaylists();
+      setPlaylistsData(data);
     };
+
     catchErrors(fetchData());
   }, []);
 
-  useEffect(() => {
-    if (!playlistsData) {
-      return;
-    }
+  // Used for fetching more playlists if total playlist count > 20
+  // useEffect(() => {
+  //   if (!playlistsData) {
+  //     return;
+  //   }
 
-    //Currently not being used
-    const fetchMoreData = async () => {
-      if (playlistsData.next) {
-        const userPlaylists = await axios.get(playlistsData.next);
-        setPlaylistsData(userPlaylists.data);
-      }
-    };
+  //   const fetchMoreData = async () => {
+  //     if (playlistsData.next && playlistsData.next !== null) {
+  //       const { data } = await axios.get(playlistsData.next);
+  //       setPlaylistsData(data);
+  //     }
+  //   };
 
-    setPlaylists((playlists) => [
-      ...(playlists ? playlists : []),
-      ...playlistsData.items,
-    ]);
-  }, [playlistsData]);
+  //   setPlaylists((playlists) => [
+  //     ...(playlists ? playlists : []),
+  //     ...playlistsData.items,
+  //   ]);
+
+  //   catchErrors(fetchMoreData());
+  // }, [playlistsData]);
 
   return (
-    <main>
+    <main className="mt-16 w-full min-h-screen flex flex-col">
       <SectionWrapper title="Public Playlists" breadcrumb={true}>
-        {playlists && <PlaylistsGrid playlists={playlists} />}
+        {playlistsData && <PlaylistsGrid playlists={playlistsData.items} />}
       </SectionWrapper>
+      <Footer />
     </main>
   );
 };
