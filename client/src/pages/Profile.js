@@ -87,7 +87,7 @@ const Profile = () => {
           onClick={logout}
           className="text-white py-2 px-4 bg-primary border-2 border-primary_text/30 rounded-full z-10 font-montserrat text-sm hover:filter hover:brightness-110 ease-in-out duration-200"
         >
-          LOG OUT
+          SIGN OUT
         </button>
       </div>
       {topArtists && topTracks && playlists && (
