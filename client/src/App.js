@@ -42,7 +42,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-primary h-full flex flex-col justify-center items-center">
+    <div className="bg-primary h-full flex flex-col justify-center items-center cursor-default">
       {!token ? (
         <Login />
       ) : (
