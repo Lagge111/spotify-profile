@@ -1,6 +1,6 @@
 import React from "react";
 import { Footer } from "../components";
-import { SpotifyIcon } from "../components/Icons";
+import SpotifyLogo from "../assets/spotify-icon.png";
 
 const LOGIN_URI =
   process.env.NODE_ENV !== "production"
@@ -12,7 +12,11 @@ const Login = () => {
     <div className="flex flex-col justify-center items-center min-h-screen text-primary_text mt-10">
       <div className="flex flex-col items-center gap-8">
         <div className="flex items-center gap-2">
-          <SpotifyIcon width="60" height="50" color="secondary" />
+          <img
+            src={SpotifyLogo}
+            alt="Spotify Icon"
+            className="w-[60px] h-[60px]"
+          />
           <p className="font-montserrat text-4xl font-bold my-10">
             Spotify Profile
           </p>

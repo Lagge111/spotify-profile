@@ -45,7 +45,7 @@ const Profile = () => {
   return (
     <>
       {profile && (
-        <div className="flex flex-col justify-center items-center pt-32">
+        <div className="flex flex-col justify-center items-center pt-32 h-full">
           <div className="flex justify-center">
             {profile.images.length && profile.images[0].url && (
               <img
