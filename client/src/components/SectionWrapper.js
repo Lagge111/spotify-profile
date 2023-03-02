@@ -36,7 +36,7 @@ const SectionWrapper = ({ children, title, seeAllLink, breadcrumb }) => (
         {seeAllLink && (
           <Link
             to={seeAllLink}
-            className="flex items-end uppercase text-light_gray text-sm font-montserrat font-semibold pb-1 hover:underline hover:underline-offset-2"
+            className="md:flex hidden items-end uppercase text-light_gray text-sm font-montserrat font-semibold pb-1 hover:underline hover:underline-offset-2"
           >
             Show All
           </Link>

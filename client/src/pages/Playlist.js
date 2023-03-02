@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { catchErrors } from "../utils";
 import { getPlaylistById } from "../spotify";
-import { TrackList, SectionWrapper } from "../components";
+import { TrackList, SectionWrapper, Loader } from "../components";
 
 const Playlist = () => {
   const { id } = useParams();
@@ -49,7 +49,7 @@ const Playlist = () => {
       {playlist && (
         <>
           <header className="flex relative justify-center pb-10 pl-10 mb-10 bg-gradient-to-b from-light_gray/30 to-dark_gray/40 w-full max-h-[350px] min-h-[350px]">
-            <div className="flex items-end w-full max-w-[1300px] mx-auto my-0">
+            <div className="flex sm:flex-row flex-col sm:pt-0 pt-8 sm:items-end items-start w-full max-w-[1300px] mx-auto my-0">
               {playlist.images.length && playlist.images[0].url && (
                 <img
                   src={playlist.images[0].url}
@@ -57,11 +57,11 @@ const Playlist = () => {
                   className="w-full max-h-[180px] min-h-[120px] max-w-[180px] mr-8 shadow-2xl bg-dark_gray md:mr-12 object-cover"
                 />
               )}
-              <div className="font-montserrat">
+              <div className="font-montserrat sm:mt-0 mt-4">
                 <div className="uppercase text-sm mb-2 text-primary_text">
                   Playlist
                 </div>
-                <h1 className="text-7xl font-extrabold text-primary_text">
+                <h1 className="sm:text-7xl text-3xl font-extrabold text-primary_text">
                   {playlist.name}
                 </h1>
                 <p className="text-light_gray text-base mt-2">
@@ -81,7 +81,11 @@ const Playlist = () => {
           </header>
           <main>
             <SectionWrapper title="Playlist" breadcrumb={true}>
-              {tracksForTracklist && <TrackList tracks={tracksForTracklist} />}
+              {tracksForTracklist ? (
+                <TrackList tracks={tracksForTracklist} />
+              ) : (
+                <Loader />
+              )}
             </SectionWrapper>
           </main>
         </>

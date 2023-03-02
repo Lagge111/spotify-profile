@@ -6,6 +6,7 @@ import {
   TrackList,
   TimeRangeButtons,
   Footer,
+  Loader,
 } from "../components";
 
 const TopTracks = () => {
@@ -28,7 +29,11 @@ const TopTracks = () => {
           activeRange={activeRange}
           setActiveRange={setActiveRange}
         />
-        {topTracks && topTracks.items && <TrackList tracks={topTracks.items} />}
+        {topTracks && topTracks.items ? (
+          <TrackList tracks={topTracks.items} />
+        ) : (
+          <Loader />
+        )}
       </SectionWrapper>
       <Footer />
     </main>

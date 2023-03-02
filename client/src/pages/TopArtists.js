@@ -6,6 +6,7 @@ import {
   SectionWrapper,
   TimeRangeButtons,
   Footer,
+  Loader,
 } from "../components";
 
 const TopArtists = () => {
@@ -29,8 +30,10 @@ const TopArtists = () => {
             activeRange={activeRange}
             setActiveRange={setActiveRange}
           />
-          {topArtists && topArtists.items && (
+          {topArtists && topArtists.items ? (
             <ArtistsGrid artists={topArtists.items.slice(0, 20)} />
+          ) : (
+            <Loader />
           )}
         </SectionWrapper>
       )}

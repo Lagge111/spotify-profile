@@ -10,7 +10,7 @@ const TrackList = ({ tracks }) => (
             className="grid items-center grid-cols-[20px 1fr] gap-6 p-2 text-light_gray text-sm rounded-md cursor-default hover:bg-dark_gray ease-in-out duration-200"
           >
             <div className="grid md:grid-cols-3 grid-cols-1 items-center">
-              <div className="flex items-center ml-6">
+              <div className="flex items-center sm:ml-6 ml-0">
                 <div className="mr-4 text-base font-montserrat">{i + 1}</div>
                 {track.album.images.length && track.album.images[2] && (
                   <div className="mr-4 w-[40px] h-[40px] shrink-0 bg-dark_gray">

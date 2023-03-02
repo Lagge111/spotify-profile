@@ -12,6 +12,7 @@ import {
   TrackList,
   PlaylistsGrid,
   Footer,
+  Loader,
 } from "../components";
 import { logout } from "../spotify";
 
@@ -55,7 +56,7 @@ const Profile = () => {
             )}
           </div>
           <div className="text-primary_text font-montserrat mt-8">
-            <p className="text-6xl font-bold font-montserrat">
+            <p className="text-6xl font-bold font-montserrat text-center">
               {profile.display_name}
             </p>
             <div className="flex flex-row gap-4 mt-6 justify-evenly">
@@ -90,7 +91,7 @@ const Profile = () => {
           SIGN OUT
         </button>
       </div>
-      {topArtists && topTracks && playlists && (
+      {topArtists && topTracks && playlists ? (
         <main className="mt-20 flex flex-col gap-10">
           <SectionWrapper
             title="Top artists this month"
@@ -108,6 +109,8 @@ const Profile = () => {
             <PlaylistsGrid playlists={playlists.items.slice(0, 10)} />
           </SectionWrapper>
         </main>
+      ) : (
+        <Loader />
       )}
       <Footer />
     </>
