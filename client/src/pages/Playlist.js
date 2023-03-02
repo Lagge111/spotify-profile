@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { catchErrors } from "../utils";
 import { getPlaylistById } from "../spotify";
-import { TrackList, SectionWrapper, Loader } from "../components";
+import { TrackList, SectionWrapper, Loader, Footer } from "../components";
 
 const Playlist = () => {
   const { id } = useParams();
@@ -87,6 +87,7 @@ const Playlist = () => {
                 <Loader />
               )}
             </SectionWrapper>
+            <Footer />
           </main>
         </>
       )}
