@@ -2,6 +2,11 @@ import React from "react";
 import { Footer } from "../components";
 import { SpotifyIcon } from "../components/Icons";
 
+const LOGIN_URI =
+  process.env.NODE_ENV !== "production"
+    ? "http://localhost:8888/login"
+    : "https://spotify-profile-stats.herokuapp.com/login";
+
 const Login = () => {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen text-primary_text mt-10">
@@ -13,7 +18,7 @@ const Login = () => {
           </p>
         </div>
         <a
-          href="http://localhost:8888/login"
+          href={LOGIN_URI}
           className="inline-block bg-secondary rounded-full font-semibold text-lg py-4 px-10 font-montserrat hover:filter hover:brightness-110 ease-in-out duration-200 text-center tracking-widest"
         >
           LOG IN TO SPOTIFY
