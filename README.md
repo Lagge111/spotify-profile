@@ -2,7 +2,7 @@
 
 ![Spotify Profile cover photo](./static/spotify-profile-readme.png)
 
-#### Web app that utilized the Spotify API to display the user's Spotify profile data, such as top artists, top tracks, and recently played tracks. Allows the user to filter top artists and top tracks based on different time intervals, such as this month or all time.
+#### Web app that utilizes the Spotify API to display the user's Spotify profile data, such as top artists, top tracks, and recently played tracks. Allows the user to filter top artists and top tracks based on different time intervals, such as this month or all time.
 
 ## Local Installation & Set Up
 
