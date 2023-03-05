@@ -1,4 +1,3 @@
-import "./App.css";
 import { useEffect, useState } from "react";
 import { accessToken, getCurrentUserProfile } from "./spotify";
 import { catchErrors } from "./utils";
