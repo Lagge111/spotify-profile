@@ -1,5 +1,9 @@
 # Spotify Profile App
 
+![Spotify Profile cover photo](./static/spotify-profile-readme.png)
+
+#### Web app that utilized the Spotify API to display the user's Spotify profile data, such as top artists, top tracks, and recently played tracks. Allows the user to filter top artists and top tracks based on different time intervals, such as this month or all time.
+
 ## Local Installation & Set Up
 
 1. Register a Spotify App in your [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) and add `http://localhost:8888/callback` as a Redirect URI in the app settings.
